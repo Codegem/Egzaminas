@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Imone;
 
@@ -18,6 +19,7 @@ class Controller extends BaseController
     }
 
     public function store(){
+        if(Auth::check()){
         $data = request()->validate([
         'pavadinimas' => 'required',
         'kodas' => 'required',
@@ -29,9 +31,12 @@ class Controller extends BaseController
         'vadovas' => 'required'
         ]);
         
-    $data['user_id'] = auth()->user()->id;
-    $data = \App\Models\Imone::create($data);
-    return redirect('/home');
+        $data['user_id'] = auth()->user()->id;
+        $data = \App\Models\Imone::create($data);
+        return redirect('/home');
+        }
+        return redirect ('/login');
+
     }
 
     public function showall(){
@@ -40,7 +45,11 @@ class Controller extends BaseController
     }   
     
     public function manage(){
+        if(Auth::check()){
         $imones=Imone::all();
         return view('pages.manage', compact('imones'));
     }
+    return redirect ('/login');
+    }
+
 }
