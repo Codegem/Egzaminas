@@ -11,6 +11,6 @@ class ImonesController extends Controller
     public function destroy(Imone $imones)
     {
         $imones->delete();
-        return redirect()->route('pages.sarasasimoniu');
+        return redirect('home');
     }
 }

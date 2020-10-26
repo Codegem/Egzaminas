@@ -24,6 +24,7 @@ Route::post('/submit', 'App\Http\Controllers\Controller@store');
 
 Route::get('/all', 'App\Http\Controllers\Controller@showall');
 
+Route::post('/destroy.{{$imone->id}}', 'App\Http\Controllers\ImonesController@destroy');
 
 Auth::routes();
 

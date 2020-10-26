@@ -36,11 +36,11 @@
                             <td>{{$imone->vadovas}}</td>
                             <td><button class="btn btn-primary m-auto">Edit</button></td>
                             <td>
-                            <form action="{{ route('imones.destroy', $imone)}}" method="POST">
-                                        @csrf
-                                        {{method_field('DELETE')}}
-                                    <button type="submit" class="btn btn-warning">Delete</button>
-                            </form>
+                                <form action="/destroy.{{$imone->id}}" method="POST">
+                                            @csrf
+                                            <!-- {{method_field('DELETE')}} -->
+                                        <button type="submit" class="btn btn-warning">Delete</button>
+                                </form>
                             </td>
                             </tr>
                             @endforeach
