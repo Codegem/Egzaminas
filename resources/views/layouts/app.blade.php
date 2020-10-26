@@ -53,7 +53,7 @@
                                 <a class="nav-link bg-warning m-1" href="/forma">Ivesti Imone</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link bg-secondary m-1" href="/all">Imoniu Sarasas</a>
+                                <a class="nav-link bg-secondary m-1" href="/manage">Imoniu Administravimas</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

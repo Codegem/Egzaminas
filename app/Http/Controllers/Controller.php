@@ -28,6 +28,7 @@ class Controller extends BaseController
         'veikla' => 'required',
         'vadovas' => 'required'
         ]);
+        
     $data['user_id'] = auth()->user()->id;
     $data = \App\Models\Imone::create($data);
     return redirect('/home');

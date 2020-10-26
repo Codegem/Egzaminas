@@ -8,9 +8,21 @@ use App\Models\Imone;
 
 class ImonesController extends Controller
 {
-    public function destroy(Imone $imones)
+    public function destroy(Imone $imone)
     {
-        $imones->delete();
+        $imone->delete();
         return redirect('home');
+    }
+
+    public function edit(Imone $imone)
+    {
+        return view('pages.formaedit', compact('imone'));
+    }
+
+    public function update(Imone $imone, Request $request)
+    {
+        $imone->update($request->all());
+
+        return redirect('/manage');
     }
 }

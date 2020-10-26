@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'App\Http\Controllers\Controller@showall');
 
 Route::get('/forma', 'App\Http\Controllers\Controller@forma');
 
@@ -24,7 +22,11 @@ Route::post('/submit', 'App\Http\Controllers\Controller@store');
 
 Route::get('/all', 'App\Http\Controllers\Controller@showall');
 
-Route::post('/destroy.{{$imone->id}}', 'App\Http\Controllers\ImonesController@destroy');
+Route::get('/destroy.{imone}', 'App\Http\Controllers\ImonesController@destroy');
+
+Route::get('/edit.{imone}', 'App\Http\Controllers\ImonesController@edit');
+
+Route::post('/update.{imone}', 'App\Http\Controllers\ImonesController@update');
 
 Auth::routes();
 

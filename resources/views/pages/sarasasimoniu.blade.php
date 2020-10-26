@@ -1,11 +1,10 @@
 @extends ('layouts/app')
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header text-center">Imoniu Sarasas</div>
-
                 <div class="card-body">
                     <table class="table table-dark">
                         <thead>
@@ -24,7 +23,7 @@
                         <tbody>
                             @foreach($imones as $imone)
                             <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">{{$imone->id}}</th>
                             <td>{{$imone->pavadinimas}}</td>
                             <td>{{$imone->kodas}}</td>
                             <td>{{$imone->pvm_kodas}}</td>

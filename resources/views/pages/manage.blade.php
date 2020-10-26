@@ -4,8 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header text-center">Imoniu Sarasas</div>
-
+                <div class="card-header text-center">Manage Imones</div>
                 <div class="card-body">
                     <table class="table table-dark">
                         <thead>
@@ -25,7 +24,7 @@
                         <tbody>
                             @foreach($imones as $imone)
                             <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">{{$imone->id}}</th>
                             <td>{{$imone->pavadinimas}}</td>
                             <td>{{$imone->kodas}}</td>
                             <td>{{$imone->pvm_kodas}}</td>
@@ -34,13 +33,11 @@
                             <td>{{$imone->elpastas}}</td>
                             <td>{{$imone->veikla}}</td>
                             <td>{{$imone->vadovas}}</td>
-                            <td><button class="btn btn-primary m-auto">Edit</button></td>
                             <td>
-                                <form action="/destroy.{{$imone->id}}" method="POST">
-                                            @csrf
-                                            <!-- {{method_field('DELETE')}} -->
-                                        <button type="submit" class="btn btn-warning">Delete</button>
-                                </form>
+                                <a href="/edit.{{$imone->id}}" class="btn btn-primary">Update</a>
+                            </td>
+                            <td>
+                                <a href="/destroy.{{$imone->id}}" class="btn btn-warning">Delete</a>
                             </td>
                             </tr>
                             @endforeach
